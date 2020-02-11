@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Boom Locator</title>
+</head>
+<style>
+    .boom {
+        width: 150px;
+        height: 10px;
+        transform: translate(150px, 10px) rotate(90deg);
+        transform-origin: left;
+        background: #ff0000;
+    }
+
+    .predicted {
+        width: 150px;
+        height: 10px;
+        transform: translate(150px, 10px) rotate(100deg);
+        transform-origin: left;
+        background: #ff00eb;
+    }
+</style>
+<body>
+<!--<svg width="400" height="110">
+    <rect width="300" height="20" style="fill:rgb(0,0,255)"/>
+</svg>-->
+<div class="boom" id="boom"></div>
+<div class="predicted" id="predicted"></div>
+<div id="angle">not this</div>
+<script>
+  let angle = (90 - 65);
+
+  setInterval(function () {
+    rotater()
+  }, 20);
+
+  function rotater() {
+    let boomElement = document.getElementById("boom");
+
+    angle += 1;
+    if (angle % 360 < 90) {
+      boomElement.style.background = "#ff0000";
+    } else {
+      boomElement.style.background = "#00FF00";
+    }
+    if (angle > (90+65)) {
+      angle = (90-65)
+    }
+
+    boomElement.style.transform = "translate(150px, 20px) rotate(" + angle + "deg)";
+    document.getElementById("angle").textContent = (angle - 90) + " degrees";
+  }
+</script>
+</body>
+</html>
