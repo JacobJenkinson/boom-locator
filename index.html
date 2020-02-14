@@ -5,6 +5,13 @@
     <title>Boom Locator</title>
 </head>
 <style>
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+     }
     .boom {
         width: 150px;
         height: 10px;
@@ -18,16 +25,18 @@
         height: 10px;
         transform: translate(150px, 10px) rotate(100deg);
         transform-origin: left;
-        background: #ff00eb;
+        background: #000000;
     }
 </style>
 <body>
 <!--<svg width="400" height="110">
     <rect width="300" height="20" style="fill:rgb(0,0,255)"/>
 </svg>-->
+<div class="container" id="container">
 <div class="boom" id="boom"></div>
 <div class="predicted" id="predicted"></div>
-<div id="angle">not this</div>
+<!--<div id="angle">not this</div>-->
+</div>
 <script>
   let angle = (90 - 65);
 
@@ -49,7 +58,7 @@
     }
 
     boomElement.style.transform = "translate(150px, 20px) rotate(" + angle + "deg)";
-    document.getElementById("angle").textContent = (angle - 90) + " degrees";
+<!--    document.getElementById("angle").textContent = (angle - 90) + " degrees";-->
   }
 </script>
 </body>
