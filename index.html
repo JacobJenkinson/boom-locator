@@ -32,19 +32,13 @@
 <!--<svg width="400" height="110">
     <rect width="300" height="20" style="fill:rgb(0,0,255)"/>
 </svg>-->
-<div class="container" id="container">
-<div class="boom" id="boom"></div>
-<div class="predicted" id="predicted"></div>
-<!--<div id="angle">not this</div>-->
+<div class="container">
+    <div class="boom" id="boom"></div>
+    <div class="predicted" id="predicted"></div>
+    <!--<div id="angle">not this</div>-->
 </div>
-<div id="angle">not this</div>
-
 <script>
-  let boomAngle = (90 - 65);
-  let predictedAngle = boomAngle + 10;
-
-  let boomMovement = +1;
-  let predictedMovement = +1;
+  let angle = (90 - 65);
 
   setInterval(function () {
     rotater()
@@ -52,32 +46,19 @@
 
   function rotater() {
     let boomElement = document.getElementById("boom");
-    let predictedElement = document.getElementById("predicted");
 
-    boomAngle += boomMovement;
-    predictedAngle += predictedMovement;
-
-    if (boomAngle % 360 < 90) {
+    angle += 1;
+    if (angle % 360 < 90) {
       boomElement.style.background = "#ff0000";
     } else {
       boomElement.style.background = "#00FF00";
     }
-
-    function limitAngle(angle, movement) {
-      if (angle > (90 + 65)) {
-        return -1
-      } else if (angle < (90 - 65)) {
-        return +1
-      }
-      return movement
+    if (angle > (90+65)) {
+      angle = (90-65)
     }
 
-    boomMovement = limitAngle(boomAngle, boomMovement);
-    predictedMovement = limitAngle(predictedAngle, predictedMovement);
-
-    boomElement.style.transform = "translate(150px, 10px) rotate(" + boomAngle + "deg)";
-    predictedElement.style.transform = "translate(150px, 10px) rotate(" + predictedAngle + "deg)";
-    document.getElementById("angle").textContent = (boomAngle - 90) + " degrees";
+    boomElement.style.transform = "translate(150px, 20px) rotate(" + angle + "deg)";
+<!--    document.getElementById("angle").textContent = (angle - 90) + " degrees";-->
   }
 </script>
 </body>
