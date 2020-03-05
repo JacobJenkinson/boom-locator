@@ -16,7 +16,6 @@ void loop() {
     parseData();
     showParsedData();
     delay(1000);
-    newData = false;
 }
 
 void recvWithStartEndMarkers() {
