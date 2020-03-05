@@ -8,25 +8,23 @@
     .container {
         position: absolute;
         top: 35%;
-        left: 39%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%)
+        left: 50%;
     }
 
     .boom {
-        width: 330px;
-        height: 17px;
-        transform: translate(150px, 10px) rotate(90deg);
-        transform-origin: left;
+        width: 17px;
+        height: 330px;
+        transform: rotate(0deg);
+        transform-origin: top;
         background: #ff0000;
         position: absolute;
     }
 
     .predicted {
-        width: 330px;
-        height: 17px;
-        transform: translate(150px, 10px) rotate(100deg);
-        transform-origin: left;
+        width: 17px;
+        height: 330px;
+        transform: rotate(10deg);
+        transform-origin: top;
         background: #000000;
         position: absolute;
     }
@@ -103,8 +101,8 @@
       return movement
     }
 
-    boomElement.style.transform = "translate(150px, 10px) rotate(" + boomAngle + "deg)";
-    predictedElement.style.transform = "translate(150px, 10px) rotate(" + predictedAngle + "deg)";
+    boomElement.style.transform = "rotate(" + boomAngle + "deg)";
+    predictedElement.style.transform = "rotate(" + predictedAngle + "deg)";
     document.getElementById("angle").textContent = "BOOM: " + (boomAngle - 90) + "°";
     document.getElementById("predictedAngle").textContent = "PREDICTED: " + (predictedAngle - 90) + "°";
   }
