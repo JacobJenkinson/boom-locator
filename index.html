@@ -22,8 +22,8 @@
 
     .predicted {
         width: 17px;
-        height: 330px;
-        transform: rotate(10deg);
+        height: 170px;
+        transform: rotate(0deg);
         transform-origin: top;
         background: #000000;
         position: absolute;
@@ -50,8 +50,8 @@
 <h1 id="predictedAngle" class="predictedAngle">not this</h1>
 
 <script>
-  let boomAngle = (90 - 65);
-  let predictedAngle = boomAngle + 10;
+  let boomAngle = 0;
+  let predictedAngle = 0;
 
   setInterval(function () {
     updateAngles()
@@ -82,10 +82,10 @@
     let boomElement = document.getElementById("boom");
     let predictedElement = document.getElementById("predicted");
 
-    if (boomAngle % 360 < 90) {
-      boomElement.style.background = "#ff0000";
-    } else {
+    if (boomAngle % 360 < 0) {
       boomElement.style.background = "#00FF00";
+    } else {
+      boomElement.style.background = "#ff0000";
     }
 
     function limitAngle(angle, movement) {
@@ -103,8 +103,8 @@
 
     boomElement.style.transform = "rotate(" + boomAngle + "deg)";
     predictedElement.style.transform = "rotate(" + predictedAngle + "deg)";
-    document.getElementById("angle").textContent = "BOOM: " + (boomAngle - 90) + "°";
-    document.getElementById("predictedAngle").textContent = "PREDICTED: " + (predictedAngle - 90) + "°";
+    document.getElementById("angle").textContent = "BOOM: " + boomAngle + "°";
+    document.getElementById("predictedAngle").textContent = "PREDICTED: " + predictedAngle + "°";
   }
 
 </script>
