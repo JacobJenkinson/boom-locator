@@ -9,11 +9,13 @@
         position: absolute;
         top: 35%;
         left: 50%;
+        width: 50%;
+        height: 60%;
     }
 
     .boom {
-        width: 17px;
-        height: 330px;
+        width: 6%;
+        height: 70%;
         transform: rotate(0deg);
         transform-origin: top;
         background: #ff0000;
@@ -21,8 +23,8 @@
     }
 
     .predicted {
-        width: 17px;
-        height: 170px;
+        width: 6%;
+        height: 50%;
         transform: rotate(0deg);
         transform-origin: top;
         background: #000000;
@@ -31,12 +33,10 @@
 
     .angle {
         text-align: center;
-        margin-top: 7%;
+        font-family: sans-serif;
+        font-size: 4rem;
     }
 
-    .predictedAngle {
-        text-align: center;
-    }
 </style>
 <body>
 <!--<svg width="400" height="110">
@@ -47,7 +47,7 @@
     <div class="predicted" id="predicted"></div>
 </div>
 <h1 id="angle" class="angle">not this</h1>
-<h1 id="predictedAngle" class="predictedAngle">not this</h1>
+<h1 id="predictedAngle" class="angle">not this</h1>
 
 <script>
   let boomAngle = 0;
@@ -55,7 +55,7 @@
 
   setInterval(function () {
     updateAngles()
-  }, 500);
+  }, 1000);
 
   function updateAngles() {
     let request = new XMLHttpRequest();
@@ -89,7 +89,7 @@
     }
 
     function limitAngle(angle, movement) {
-      const ZERO_ANGLE = 90;
+      const ZERO_ANGLE = 0;
       const LEFT_LIMIT = ZERO_ANGLE + 65;
       const RIGHT_LIMIT = ZERO_ANGLE - 65;
 
